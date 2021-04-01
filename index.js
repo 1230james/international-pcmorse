@@ -6,6 +6,7 @@
 // =====================================================================================================================
 
 const decode   = require("./decode.js");
+const encode   = require("./encode.js");
 const readline = require("readline");
 
 var   state   = 0;
@@ -68,7 +69,7 @@ function state1(line) {
     if (line.length < 1) { // keep waiting if the line is empty
         return;
     }
-    console.log();
+    console.log(); // blank line
     let msg = decode(line);
     console.log(msg);
     state = 3;
@@ -76,7 +77,11 @@ function state1(line) {
 }
 
 function state2(line) {
-    // todo
+    console.log();
+    let msg = encode(line);
+    console.log(msg);
+    state = 3;
+    console.log("\nEnter 'exit' to exit, else enter anything else to start again.");
 }
 
 function state3(line) {
